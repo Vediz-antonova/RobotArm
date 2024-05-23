@@ -11,26 +11,22 @@ CONFIG += c++17
 SOURCES += \
     circle.cpp \
     figure.cpp \
-    hexagon.cpp \
     line.cpp \
     main.cpp \
     mainwindow.cpp \
     rectangle.cpp \
     rhombus.cpp \
     square.cpp \
-    star.cpp \
     triangle.cpp
 
 HEADERS += \
     circle.h \
     figure.h \
-    hexagon.h \
     line.h \
     mainwindow.h \
     rectangle.h \
     rhombus.h \
     square.h \
-    star.h \
     triangle.h
 
 FORMS += \

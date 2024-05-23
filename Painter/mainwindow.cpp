@@ -87,46 +87,6 @@ void MainWindow::on_RhombusButton_clicked(){
 
 void MainWindow::on_pushButton_clicked()
 {
-    // int heightView = ui->graphicsView->height();
-    // double length = qSqrt((figure->centerX - figure->mouseX) * (figure->centerX - figure->mouseX) + (heightView - figure->centerY - (heightView - figure->mouseY)) * (heightView - figure->centerY - (heightView - figure->mouseY)));
-    // double Oy = fabs(heightView - figure->centerY - (heightView - figure->mouseY));
-    // double Ox = fabs(figure->centerX - figure->mouseX);
-    // double sinA = Oy / length;
-    // double cosA = Ox / length;
-    // int n = ceil(length / 2);
-
-    // double* x = new double[n + 1];
-    // double* y = new double[n + 1];
-    // double* polar = new double[n + 1];
-
-    // x[0] = figure->centerX;
-    // for (int i = 1; i < n; i++) {
-    //     x[i] = x[i - 1] + 2 * cosA;
-    // }
-    // x[n] = figure->mouseX;
-    // y[0] = figure->centerY;
-    // for (int i = 1; i < n; i++) {
-    //     y[i] = y[i - 1] + 2 * sinA;
-    // }
-    // y[n] = figure->mouseY;
-
-    // for(int i = 0; i < n + 1; i++){
-    //     polar[i] = qSqrt(x[i] * x[i] + y[i] * y[i]);
-    // }
-
-    // double* alpha = new double[n + 1];
-    // double* beta = new double[n + 1];
-
-    // for(int i = 0; i < n + 1; i++){
-    //     alpha[i] = acos(x[i] / polar[i]);
-    //     beta[i] = acos((polar[i] - 55) / 160);
-    // }
-
-    // for(int i = 0; i < n + 1; i++){
-    //     qDebug() << "Alpha: " << alpha[i] * 180 / 3.1415923565798932;
-    //     qDebug() << "Beta: " << beta[i] * 180 / 3.1415923565798932 << "\n";
-    // }
-
     dynamic_cast<Line*>(figure)->forPort();
 }
 

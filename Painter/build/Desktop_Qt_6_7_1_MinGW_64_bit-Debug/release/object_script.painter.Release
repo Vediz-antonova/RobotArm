@@ -1,0 +1,10 @@
+release/circle.o
+release/figure.o
+release/line.o
+release/main.o
+release/mainwindow.o
+release/rectangle.o
+release/rhombus.o
+release/square.o
+release/triangle.o
+release/moc_mainwindow.o

@@ -1,5 +1,4 @@
 #include "figure.h"
-#include <iostream>
 #include <QPainter>
 #include <QPolygon>
 

@@ -16,24 +16,26 @@ void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 }
 
 void Line::forPort() {
-    int segmentSize = 3 * 0.26;
+    double segmentSize = 5 / 0.18;
 
-    double lineLength = std::sqrt(std::pow(mouseX - centerX, 2) + std::pow(mouseY - centerY, 2));
+    double lineLength = std::sqrt(std::pow(mouseX, 2) + std::pow(mouseY, 2));
 
     int segmentsCount = lineLength / segmentSize;
 
-    for (int i = 0; i < segmentsCount; ++i) {
-        double segmentEndX = centerX + (mouseX - centerX) * (i + 1) / segmentsCount;
-        double segmentEndY = centerY + (mouseY - centerY) * (i + 1) / segmentsCount;
-
+    for (int i = -1; i < segmentsCount; ++i) {
+        double segmentEndX =  /*centerX + */(mouseX * (i + 1) / segmentsCount);
+        double segmentEndY =  /*centerY + */(mouseY * (i + 1) / segmentsCount);
+        //double polarRadius = std::abs(std::sqrt(std::pow(segmentEndX + 100*0.26, 2) + std::pow(422 - segmentEndY, 2)) - 54.6);
         // Вычисляем полярный радиус
-        double polarRadius = std::sqrt(std::pow(segmentEndX, 2) + std::pow(segmentEndY, 2));
+        double polarRadius = std::sqrt(std::pow(segmentEndX + 100/0.18, 2) + std::pow(422 - segmentEndY, 2));
+         //polarRadius = fmod(polarRadius, 54.6);
 
         // Вычисляем углы альфа и бета
         double alpha = std::acos(segmentEndX / polarRadius) * 180 / M_PI; // переводим радианы в градусы
-        double beta = std::acos((polarRadius - 55) / 160) * 180 / M_PI; // переводим радианы в градусы
+        double beta = std::acos((polarRadius - 55/0.18) / (160/0.18)) * 180 / M_PI; // переводим радианы в градусы
 
         qDebug() << "Alpha: " << alpha;
         qDebug() << "Beta: " << beta;
+        // qDebug() << "Beta1: " << std::acos((polarRadius - 55*0.26) / (160*0.26)) * 180 / M_PI;
     }
 }

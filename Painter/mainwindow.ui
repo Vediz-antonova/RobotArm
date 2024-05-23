@@ -87,7 +87,14 @@
      </layout>
     </item>
     <item row="1" column="0">
-     <widget class="QGraphicsView" name="graphicsView"/>
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid rgb(116, 169, 255);</string>
+      </property>
+     </widget>
     </item>
     <item row="2" column="1">
      <widget class="QPushButton" name="pushButton">
@@ -104,7 +111,7 @@
      <x>0</x>
      <y>0</y>
      <width>873</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>
