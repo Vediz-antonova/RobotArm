@@ -23,9 +23,8 @@ public:
         draw(painter);
         forPort();
     }
-    QRectF boundingRect() const{
-        // Возвращает ограничивающий прямоугольник
-        return QRectF(-100, -100, 1000*625, 1000*450); /// Посмотреть
+    QRectF boundingRect() const{\
+        return QRectF(0, 0, 767, 422);
     }
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);

@@ -1,23 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <triangle.h>
-#include <circle.h>
-#include <line.h>
-#include <square.h>
-#include <rectangle.h>
-#include <rhombus.h>
-#include <hexagon.h>
-#include <star.h>
-
-#include <QGraphicsProxyWidget>
-#include <QGraphicsSceneMouseEvent>
-#include <QMouseEvent>
-#include <QMessageBox>
-#include <QGraphicsView>
-#include <QLabel>
-#include <QTimer>
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow){
@@ -55,33 +38,24 @@ void MainWindow::infoFigure(Figure* figure){
     });
 }
 
-void MainWindow::on_StarButton_clicked(){
-    Star *st = new Star(5);
-    scene->addItem(st);
-    infoFigure(st);
-}
-
 void MainWindow::on_TriangleButton_clicked(){
     Triangle *tr = new Triangle();
     scene->addItem(tr);
     infoFigure(tr);
 }
 
-void MainWindow::on_CircleButton_clicked(){
-    Circle *cr = new Circle();
-    scene->addItem(cr);
-    infoFigure(cr);
-}
+// void MainWindow::on_CircleButton_clicked(){
+//     Circle *cr = new Circle();
+//     scene->addItem(cr);
+//     infoFigure(cr);
+// }
 
 void MainWindow::on_LineButton_clicked(){
     Line *ln = new Line();
     scene->addItem(ln);
     infoFigure(ln);
 
-    figure->mouseX = ln->mouseX;
-    figure->mouseY = ln->mouseY;
-    figure->centerX = ln->centerX;
-    figure->centerY = ln->centerY;
+    figure = dynamic_cast<Figure*>(ln);
 }
 
 void MainWindow::on_ClearButton_clicked(){
@@ -111,55 +85,48 @@ void MainWindow::on_RhombusButton_clicked(){
     infoFigure(rh);
 }
 
-void MainWindow::on_HexagonButton_clicked(){
-    Hexagon *hg = new Hexagon();
-    scene->addItem(hg);
-    infoFigure(hg);
-}
-
 void MainWindow::on_pushButton_clicked()
 {
-    qDebug() << "MouseX: " << figure->mouseX;
-    qDebug() << "CenterX: " << figure->centerX;
-    double length = qSqrt((figure->centerX - figure->mouseX) * (figure->centerX - figure->mouseX) + (figure->centerY - figure->mouseY) * (figure->centerY - figure->mouseY));
-    double Oy = fabs(figure->centerY - figure->mouseY);
-    double Ox = fabs(figure->centerX - figure->mouseX);
-    double sinA = Oy / length;
-    double cosA = Ox / length;
-    int n = ceil(length / 2);
+    // int heightView = ui->graphicsView->height();
+    // double length = qSqrt((figure->centerX - figure->mouseX) * (figure->centerX - figure->mouseX) + (heightView - figure->centerY - (heightView - figure->mouseY)) * (heightView - figure->centerY - (heightView - figure->mouseY)));
+    // double Oy = fabs(heightView - figure->centerY - (heightView - figure->mouseY));
+    // double Ox = fabs(figure->centerX - figure->mouseX);
+    // double sinA = Oy / length;
+    // double cosA = Ox / length;
+    // int n = ceil(length / 2);
 
-    double* x = new double[n + 1];
-    double* y = new double[n + 1];
-    double* polar = new double[n + 1];
+    // double* x = new double[n + 1];
+    // double* y = new double[n + 1];
+    // double* polar = new double[n + 1];
 
-    x[0] = figure->centerX;
-    for (int i = 1; i < n; i++) {
-        x[i] = x[i - 1] + 2 * cosA;
-    }
-    x[n] = figure->mouseX;
-    y[0] = figure->centerY;
-    for (int i = 1; i < n; i++) {
-        y[i] = y[i - 1] + 2 * sinA;
-    }
-    y[n] = figure->mouseY;
+    // x[0] = figure->centerX;
+    // for (int i = 1; i < n; i++) {
+    //     x[i] = x[i - 1] + 2 * cosA;
+    // }
+    // x[n] = figure->mouseX;
+    // y[0] = figure->centerY;
+    // for (int i = 1; i < n; i++) {
+    //     y[i] = y[i - 1] + 2 * sinA;
+    // }
+    // y[n] = figure->mouseY;
 
-    for(int i = 0; i < n + 1; i++){
-        polar[i] = qSqrt(x[i] * x[i] + y[i] * y[i]);
-    }
+    // for(int i = 0; i < n + 1; i++){
+    //     polar[i] = qSqrt(x[i] * x[i] + y[i] * y[i]);
+    // }
 
-    double* alpha = new double[n + 1];
-    double* beta = new double[n + 1];
+    // double* alpha = new double[n + 1];
+    // double* beta = new double[n + 1];
 
-    for(int i = 0; i < n + 1; i++){
-        alpha[i] = acos(x[i] / polar[i]);
-        beta[i] = acos((polar[i] - 55) / 160);
-    }
+    // for(int i = 0; i < n + 1; i++){
+    //     alpha[i] = acos(x[i] / polar[i]);
+    //     beta[i] = acos((polar[i] - 55) / 160);
+    // }
 
-    for(int i = 0; i < n + 1; i++){
-        qDebug() << "Alpha: " << alpha[i] * 180 / 3.1415923565798932;
-        qDebug() << "Beta: " << beta[i] * 180 / 3.1415923565798932 << "\n";
-    }
+    // for(int i = 0; i < n + 1; i++){
+    //     qDebug() << "Alpha: " << alpha[i] * 180 / 3.1415923565798932;
+    //     qDebug() << "Beta: " << beta[i] * 180 / 3.1415923565798932 << "\n";
+    // }
 
-
+    dynamic_cast<Line*>(figure)->forPort();
 }
 

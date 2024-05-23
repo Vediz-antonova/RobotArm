@@ -2,9 +2,21 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QGraphicsScene>
+#include <QGraphicsProxyWidget>
+#include <QGraphicsSceneMouseEvent>
+#include <QMouseEvent>
+#include <QMessageBox>
+#include <QGraphicsView>
 #include <QLabel>
+#include <QTimer>
+
 #include <figure.h>
+#include <triangle.h>
+#include <circle.h>
+#include <line.h>
+#include <square.h>
+#include <rectangle.h>
+#include <rhombus.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,15 +33,13 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_StarButton_clicked();
     void on_TriangleButton_clicked();
-    void on_CircleButton_clicked();
+    // void on_CircleButton_clicked();
     void on_LineButton_clicked();
     void on_ClearButton_clicked();
     void on_SquareButton_clicked();
     void on_RectangleButton_clicked();
     void on_RhombusButton_clicked();
-    void on_HexagonButton_clicked();
 
     void updateCenterDisplay(QString newX, QString newY);
     void infoFigure(Figure* figure);

@@ -35,24 +35,10 @@
     </item>
     <item row="1" column="1">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="0">
-       <widget class="QPushButton" name="LineButton">
-        <property name="text">
-         <string>Line</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QPushButton" name="HexagonButton">
-        <property name="text">
-         <string>Hexagon</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="0">
-       <widget class="QPushButton" name="CircleButton">
+       <widget class="QPushButton" name="SquareButton">
         <property name="text">
-         <string>Circle</string>
+         <string>Square</string>
         </property>
        </widget>
       </item>
@@ -63,38 +49,38 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="SquareButton">
-        <property name="text">
-         <string>Square</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
+      <item row="4" column="0">
        <widget class="QPushButton" name="RhombusButton">
         <property name="text">
          <string>Rhombus</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
+      <item row="3" column="0">
        <widget class="QPushButton" name="TriangleButton">
         <property name="text">
          <string>Triangle</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
-       <widget class="QPushButton" name="StarButton">
-        <property name="text">
-         <string>Star</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
+      <item row="5" column="0">
        <widget class="QPushButton" name="RectangleButton">
         <property name="text">
          <string>Rectangle</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="LineButton">
+        <property name="text">
+         <string>Line</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>

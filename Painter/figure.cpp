@@ -5,7 +5,7 @@
 
 Figure::Figure(QGraphicsItem *parent2) : QGraphicsItem(parent2) {
     setCenter = false;
-    setFlag(QGraphicsItem::ItemIsFocusable, true);
+    // setFlag(QGraphicsItem::ItemIsFocusable, true);
 }
 
 void Figure::mousePressEvent(QGraphicsSceneMouseEvent *event){

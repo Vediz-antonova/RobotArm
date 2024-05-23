@@ -2,6 +2,7 @@
 #define LINE_H
 
 #include <QDebug>
+#include <cmath>
 #include "figure.h"
 
 class Line : public Figure{
