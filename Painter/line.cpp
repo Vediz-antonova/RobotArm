@@ -22,6 +22,9 @@ void Line::forPort() {
 
     int segmentsCount = lineLength / segmentSize;
 
+    std::vector<double> arrAlpha;
+    std::vector<double> arrBeta;
+
     for (int i = -1; i < segmentsCount; ++i) {
         double segmentEndX =  /*centerX + */(mouseX * (i + 1) / segmentsCount);
         double segmentEndY =  /*centerY + */(mouseY * (i + 1) / segmentsCount);
@@ -31,11 +34,16 @@ void Line::forPort() {
          //polarRadius = fmod(polarRadius, 54.6);
 
         // Вычисляем углы альфа и бета
-        double alpha = std::acos(segmentEndX / polarRadius) * 180 / M_PI; // переводим радианы в градусы
-        double beta = std::acos((polarRadius - 55/0.18) / (160/0.18)) * 180 / M_PI; // переводим радианы в градусы
+        double alpha = std::acos(segmentEndX / polarRadius) * 180 / M_PI;
+        double beta = std::acos((polarRadius - 55/0.18) / (160/0.18)) * 180 / M_PI;
 
         qDebug() << "Alpha: " << alpha;
         qDebug() << "Beta: " << beta;
-        // qDebug() << "Beta1: " << std::acos((polarRadius - 55*0.26) / (160*0.26)) * 180 / M_PI;
+
+        arrAlpha.push_back(alpha);
+        arrBeta.push_back(beta);
     }
+
+    setAlpha(arrAlpha);
+    setBeta(arrBeta);
 }

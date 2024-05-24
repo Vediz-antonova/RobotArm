@@ -87,6 +87,22 @@ void MainWindow::on_RhombusButton_clicked(){
 
 void MainWindow::on_pushButton_clicked()
 {
-    dynamic_cast<Line*>(figure)->forPort();
-}
+    Line* line = dynamic_cast<Line*>(figure);
+    line->forPort();
 
+    std::vector<double> arrAlpha = line->getAlpha();
+    std::vector<double> arrBeta = line->getBeta();
+    ArduinoCommunicator arduino("COM3");
+    while(!arrAlpha.empty()){
+        arduino.sendPen(0);
+        double alpha = arrAlpha[0];
+        double beta = arrBeta[0];
+        arduino.sendAngles(alpha, beta);
+
+        arrAlpha.erase(arrAlpha.begin());
+        arrBeta.erase(arrBeta.begin());
+    }
+    arduino.sendPen(1);
+    line->setAlpha(arrAlpha);
+    line->setBeta(arrBeta);
+}

@@ -18,6 +18,8 @@
 #include <rectangle.h>
 #include <rhombus.h>
 
+#include <arduinocommunicator.h>>
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;

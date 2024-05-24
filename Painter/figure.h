@@ -12,9 +12,18 @@ class Figure : public QGraphicsItem{
 private:
     bool setCenter = false;
 
+    std::vector<double> alpha;
+    std::vector<double> beta;
+
 public:
     int centerX, centerY;
     int mouseX, mouseY;
+
+    void setAlpha(std::vector<double> value) { alpha = value; }
+    std::vector<double> getAlpha() { return alpha; }
+
+    void setBeta(std::vector<double> value) { beta = value; }
+    std::vector<double> getBeta() { return beta; }
 
     Figure(QGraphicsItem *parent = nullptr);
 
