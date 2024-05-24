@@ -30,7 +30,7 @@ void Line::forPort() {
         double segmentEndY =  /*centerY + */(mouseY * (i + 1) / segmentsCount);
         //double polarRadius = std::abs(std::sqrt(std::pow(segmentEndX + 100*0.26, 2) + std::pow(422 - segmentEndY, 2)) - 54.6);
         // Вычисляем полярный радиус
-        double polarRadius = std::sqrt(std::pow(segmentEndX + 100/0.18, 2) + std::pow(422 - segmentEndY, 2));
+        double polarRadius = std::sqrt(std::pow(segmentEndX /*+ 100/0.18*/, 2) + std::pow(422 - segmentEndY, 2));
          //polarRadius = fmod(polarRadius, 54.6);
 
         // Вычисляем углы альфа и бета

@@ -54,5 +54,7 @@ private:
     QGraphicsScene *scene;
     QTimer* timer;
     QLabel *label;
+
+    ArduinoCommunicator* arduino = new ArduinoCommunicator("COM8");
 };
 #endif // MAINWINDOW_H

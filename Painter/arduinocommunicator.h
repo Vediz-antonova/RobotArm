@@ -2,6 +2,7 @@
 #define ARDUINOCOMMUNICATOR_H
 
 #include <QSerialPort>
+#include <QDebug>>
 
 class ArduinoCommunicator {
 public:
@@ -23,8 +24,8 @@ public:
         delete arduino;
     }
 
-    void sendPen(bool statusPen){
-        QString setPen = "p " + QString::number(statusPen) + "\n";
+    void sendPen(int statusPen){
+        QString setPen = "p " + QString::number(statusPen) + '\n';
         arduino->write(setPen.toStdString().c_str());
     }
 
