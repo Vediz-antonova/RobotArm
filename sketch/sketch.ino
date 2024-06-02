@@ -71,11 +71,17 @@ void cmd_beta(SerialCommands& sender, Args& args) {
   setBeta(angle);
 }
 
+void cmd_delay(SerialCommands& sender, Args& args) {
+  int delay_number = args[0].getInt();
+  delay(delay_number);
+}
+
 Command commands[] {
   COMMAND(cmd_help, "help", NULL, "list commands"),
   COMMAND(cmd_pen, "p", ARG(ArgType::Int, 0, 1, "isDown"), NULL, "Set pen up or down. 1 for down."),
   COMMAND(cmd_alpha, "a", ARG(ArgType::Float, 60, 120, "angle"), NULL, "Set alpha angle. 60 <= alpha <= 120"),
   COMMAND(cmd_beta, "b", ARG(ArgType::Float, 20, 70, "angle"), NULL, "Set beta angle. 20 <= beta <= 70"),
+  COMMAND(cmd_delay, "d", ARG(ArgType::Int, 0, 3000, "delay_number"), NULL, "Set delay. 0 <= delay_number <= 3000"),
 };
 
 SerialCommands serialCommands(Serial, commands, sizeof(commands) / sizeof(Command));
@@ -91,7 +97,6 @@ void setup() {
   setAlpha(90);
   setBeta(70);
   delay(1000);
-  // setPen(true);
 }
 
 void loop() {

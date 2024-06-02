@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1225</width>
+    <height>413</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="3">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="ClearButton">
+        <property name="text">
+         <string>Clear</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="LineButton">
+        <property name="text">
+         <string>Line</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="SquareButton">
+        <property name="text">
+         <string>Square</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="TriangleButton">
+        <property name="text">
+         <string>Triangle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="RhombusButton">
+        <property name="text">
+         <string>Rhombus</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="RectangleButton">
+        <property name="text">
+         <string>Rectangle</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="0">
+     <widget class="QGraphicsView" name="graphicsView"/>
+    </item>
+    <item row="1" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_x0">
+        <property name="text">
+         <string>x0:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_y0">
+        <property name="text">
+         <string>y0:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_x">
+        <property name="text">
+         <string>x:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_y">
+        <property name="text">
+         <string>y:</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="3">
+     <widget class="QPushButton" name="DrawRobotButton">
+      <property name="text">
+       <string>DrawRobot</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1225</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
