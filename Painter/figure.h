@@ -30,10 +30,10 @@ public:
     virtual void draw(QPainter *painter) = 0;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget){
         draw(painter);
-        forPort();
+        // forPort();
     }
     QRectF boundingRect() const{\
-        return QRectF(0, 0, 767, 422);
+        return QRectF(0, 0, 1111, 305);
     }
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);

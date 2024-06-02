@@ -26,6 +26,7 @@ public:
 
     void sendPen(int statusPen){
         QString setPen = "p " + QString::number(statusPen) + '\n';
+        qDebug() << "setPen " << statusPen;
         arduino->write(setPen.toStdString().c_str());
     }
 

@@ -42,8 +42,8 @@ void setBeta(float angle) {
   float revAngle = 180.0 - angle;
   float betaModifier = getPenUpBetaModifier(angle);
 
-  setServo(sBeta, revAngle - betaModifier - 10);
-  setServo(sBetaUp, revAngle + betaModifier + 10);
+  setServo(sBeta, revAngle - betaModifier);
+  setServo(sBetaUp, revAngle + betaModifier);
   beta = angle;
 }
 

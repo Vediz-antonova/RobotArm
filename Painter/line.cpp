@@ -25,13 +25,20 @@ void Line::forPort() {
     std::vector<double> arrAlpha;
     std::vector<double> arrBeta;
 
+    // double angle = mouseX != 0 ? atan(mouseY/mouseX) : 0;
+    // double segmentX = segmentSize * cos(angle);
+    // double segmentY = segmentSize * sin(angle);
+
     for (int i = -1; i < segmentsCount; ++i) {
-        double segmentEndX =  /*centerX + */(mouseX * (i + 1) / segmentsCount);
-        double segmentEndY =  /*centerY + */(mouseY * (i + 1) / segmentsCount);
-        //double polarRadius = std::abs(std::sqrt(std::pow(segmentEndX + 100*0.26, 2) + std::pow(422 - segmentEndY, 2)) - 54.6);
+        double segmentEndX =  centerX + (mouseX * (i + 1) / segmentsCount);
+        double segmentEndY =  centerY + (mouseY * (i + 1) / segmentsCount);
+
+        // double segmentEndX =  centerX + segmentX * i;
+        // double segmentEndY =  centerY + segmentY * i;
+
         // Вычисляем полярный радиус
-        double polarRadius = std::sqrt(std::pow(segmentEndX /*+ 100/0.18*/, 2) + std::pow(422 - segmentEndY, 2));
-         //polarRadius = fmod(polarRadius, 54.6);
+        double polarRadius = std::sqrt(std::pow(segmentEndX /*+ 100/0.18*/, 2) + std::pow(305 - segmentEndY, 2));
+            //polarRadius = fmod(polarRadius, 54.6);
 
         // Вычисляем углы альфа и бета
         double alpha = std::acos(segmentEndX / polarRadius) * 180 / M_PI;
