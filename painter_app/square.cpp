@@ -57,4 +57,3 @@ void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event){
 
     update();
 }
-

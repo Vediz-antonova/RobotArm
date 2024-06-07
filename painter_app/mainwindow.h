@@ -4,10 +4,13 @@
 #include <QMainWindow>
 #include <QGraphicsView>
 #include <QTimer>
+#include <QMessageBox>
 
 #include "line.h"
 #include "rectangle.h"
 #include "square.h"
+#include "rhombus.h"
+#include "triangle.h"
 #include "arduino_communicator.h"
 
 QT_BEGIN_NAMESPACE
@@ -31,12 +34,14 @@ public:
 
 private slots:
     void on_LineButton_clicked();
+    void on_RectangleButton_clicked();
+    void on_SquareButton_clicked();
+    void on_RhombusButton_clicked();
+    void on_TriangleButton_clicked();
 
     void on_DrawRobotButton_clicked();
 
-    void on_RectangleButton_clicked();
-
-    void on_SquareButton_clicked();
+    void on_ClearButton_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -46,6 +51,8 @@ private:
     Line* line = nullptr;
     Rectangle* rectangle = nullptr;
     Square* square = nullptr;
+    Rhombus* rhombus = nullptr;
+    Triangle* triangle = nullptr;
     Arduino_Communicator* arduino = new Arduino_Communicator("COM9");
 };
 #endif // MAINWINDOW_H

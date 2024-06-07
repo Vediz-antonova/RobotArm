@@ -14,14 +14,18 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     rectangle.cpp \
-    square.cpp
+    rhombus.cpp \
+    square.cpp \
+    triangle.cpp
 
 HEADERS += \
     arduino_communicator.h \
     line.h \
     mainwindow.h \
     rectangle.h \
-    square.h
+    rhombus.h \
+    square.h \
+    triangle.h
 
 FORMS += \
     mainwindow.ui

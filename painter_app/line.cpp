@@ -49,7 +49,7 @@ void Line::mathForDrawLineWithRobotArm() {
     allAlphaAngles = std::vector<double>{};
     allBetaAngles = std::vector<double>{};
 
-    double segmentSize = 2 * PPM;
+    double segmentSize = 1 * PPM;
     double lineLength = std::sqrt(std::pow(x - x0, 2) + std::pow(y - y0, 2));
 
     int segmentsCount = lineLength / segmentSize;

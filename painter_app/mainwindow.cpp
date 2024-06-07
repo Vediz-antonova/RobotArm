@@ -50,6 +50,8 @@ void MainWindow::on_LineButton_clicked()
     infoCoordinate(line);
     rectangle = nullptr;
     square = nullptr;
+    rhombus = nullptr;
+    triangle = nullptr;
 }
 
 void MainWindow::on_RectangleButton_clicked()
@@ -59,6 +61,8 @@ void MainWindow::on_RectangleButton_clicked()
 
     line = nullptr;
     square = nullptr;
+    rhombus = nullptr;
+    triangle = nullptr;
 }
 
 void MainWindow::on_SquareButton_clicked()
@@ -68,6 +72,30 @@ void MainWindow::on_SquareButton_clicked()
 
     line = nullptr;
     rectangle = nullptr;
+    rhombus = nullptr;
+    triangle = nullptr;
+}
+
+void MainWindow::on_RhombusButton_clicked()
+{
+    rhombus = new Rhombus();
+    scene->addItem(rhombus);
+
+    line = nullptr;
+    rectangle = nullptr;
+    square = nullptr;
+    triangle = nullptr;
+}
+
+void MainWindow::on_TriangleButton_clicked()
+{
+    triangle = new Triangle();
+    scene->addItem(triangle);
+
+    line = nullptr;
+    rectangle = nullptr;
+    square = nullptr;
+    rhombus = nullptr;
 }
 
 void MainWindow::on_DrawRobotButton_clicked()
@@ -86,6 +114,15 @@ void MainWindow::on_DrawRobotButton_clicked()
         drawLine(&square->line2);
         drawLine(&square->line3);
         drawLine(&square->line4);
+    } else if (rhombus != nullptr) {
+        drawLine(&rhombus->line1);
+        drawLine(&rhombus->line2);
+        drawLine(&rhombus->line3);
+        drawLine(&rhombus->line4);
+    } else if (triangle != nullptr) {
+        drawLine(&triangle->line1);
+        drawLine(&triangle->line2);
+        drawLine(&triangle->line3);
     }
 
     arduino->sendPen(0);
@@ -108,3 +145,14 @@ void MainWindow::drawLine(Line* line) {
         arduino->sendDelay(DELAY);
     }
 }
+
+void MainWindow::on_ClearButton_clicked()
+{
+    QMessageBox message;
+    message.warning(this, "", "Замените лист бумаги");
+
+    QGraphicsScene *scene1 = new QGraphicsScene(this);
+    ui->graphicsView->setScene(scene1);
+    scene = scene1;
+}
+
