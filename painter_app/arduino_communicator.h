@@ -3,6 +3,7 @@
 
 #include <QSerialPort>
 #include <QDebug>>
+#include <QThread>
 
 class Arduino_Communicator
 {

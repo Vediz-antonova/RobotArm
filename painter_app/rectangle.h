@@ -1,5 +1,5 @@
-#ifndef LINE_H
-#define LINE_H
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 
 #include <QGraphicsItem>
 #include <QWidget>
@@ -7,21 +7,17 @@
 #include <QPainter>
 #include <QKeyEvent>
 
-#define PPM 5.0
+#include "line.h"
 
-class Line: public QGraphicsItem
+class Rectangle : public QGraphicsItem
 {
 private:
     bool setStartCoordinates = false;
 
-    std::vector<double> allAlphaAngles;
-    std::vector<double> allBetaAngles;
-    double translateXToMm(double x);
-    double translateYToMm(double y);
-
 public:
-    Line();
+    Rectangle();
     int x0, y0, x, y;
+    Line line1, line2, line3, line4;
 
     void draw(QPainter *painter);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
@@ -29,11 +25,6 @@ public:
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
-
-    std::vector<double> getAlpha();
-    std::vector<double> getBeta();
-
-    void mathForDrawLineWithRobotArm();
 };
 
-#endif // LINE_H
+#endif // RECTANGLE_H

@@ -59,6 +59,8 @@ void cmd_help(SerialCommands& sender, Args& args) {
 void cmd_pen(SerialCommands& sender, Args& args) {
   int isDown = args[0].getInt();
   setPen(isDown);
+
+  delay(100);
 }
 
 void cmd_alpha(SerialCommands& sender, Args& args) {
@@ -69,6 +71,8 @@ void cmd_alpha(SerialCommands& sender, Args& args) {
 void cmd_beta(SerialCommands& sender, Args& args) {
   float angle = args[0].getFloat();
   setBeta(angle);
+
+  delay(100);
 }
 
 void cmd_delay(SerialCommands& sender, Args& args) {
@@ -79,8 +83,8 @@ void cmd_delay(SerialCommands& sender, Args& args) {
 Command commands[] {
   COMMAND(cmd_help, "help", NULL, "list commands"),
   COMMAND(cmd_pen, "p", ARG(ArgType::Int, 0, 1, "isDown"), NULL, "Set pen up or down. 1 for down."),
-  COMMAND(cmd_alpha, "a", ARG(ArgType::Float, 60, 120, "angle"), NULL, "Set alpha angle. 60 <= alpha <= 120"),
-  COMMAND(cmd_beta, "b", ARG(ArgType::Float, 20, 70, "angle"), NULL, "Set beta angle. 20 <= beta <= 70"),
+  COMMAND(cmd_alpha, "a", ARG(ArgType::Float, 50, 130, "angle"), NULL, "Set alpha angle. 50 <= alpha <= 130"),
+  COMMAND(cmd_beta, "b", ARG(ArgType::Float, 30, 75, "angle"), NULL, "Set beta angle. 30 <= beta <= 75"),
   COMMAND(cmd_delay, "d", ARG(ArgType::Int, 0, 3000, "delay_number"), NULL, "Set delay. 0 <= delay_number <= 3000"),
 };
 

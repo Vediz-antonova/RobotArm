@@ -16,7 +16,7 @@ void Line::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 }
 
 QRectF Line::boundingRect() const{
-    return QRectF(0, 0, 1111, 305);
+    return QRectF(0, 0, 750, 425);
 }
 
 void Line::mousePressEvent(QGraphicsSceneMouseEvent *event){
@@ -49,20 +49,23 @@ void Line::mathForDrawLineWithRobotArm() {
     allAlphaAngles = std::vector<double>{};
     allBetaAngles = std::vector<double>{};
 
-    double segmentSize = 2 / 0.18;
-
+    double segmentSize = 2 * PPM;
     double lineLength = std::sqrt(std::pow(x - x0, 2) + std::pow(y - y0, 2));
 
     int segmentsCount = lineLength / segmentSize;
+    qDebug() << "Segments " << segmentsCount;
+
 
     for (int i = -1; i < segmentsCount; ++i) {
-        double segmentEndX =  x0 + ((x - x0) * (i + 1) / segmentsCount);
-        double segmentEndY =  y0 + ((y - y0) * (i + 1) / segmentsCount);
+        double segmentEndX =  translateXToMm(x0 + ((x - x0) * (i + 1) / segmentsCount));
+        double segmentEndY =  translateYToMm(y0 + ((y - y0) * (i + 1) / segmentsCount));
 
-        double polarRadius = std::sqrt(std::pow(segmentEndX, 2) + std::pow(305 - segmentEndY, 2));
+        double polarRadius = std::sqrt(std::pow(segmentEndX, 2) + std::pow(segmentEndY, 2));
 
         double alpha = std::acos(segmentEndX / polarRadius) * 180 / M_PI;
-        double beta = std::acos((polarRadius - 55/0.18) / (160/0.18)) * 180 / M_PI;
+        double beta = std::acos((polarRadius - 45) / 160) * 180 / M_PI;
+
+        qDebug() << "R: " << polarRadius << "  Alpha: " << alpha;
 
         qDebug() << "EndX: " << segmentEndX << "    EndY: " << segmentEndY;
         qDebug() << "Alpha: " << alpha << "    Beta: " << beta << '\n';
@@ -70,4 +73,12 @@ void Line::mathForDrawLineWithRobotArm() {
         allAlphaAngles.push_back(alpha);
         allBetaAngles.push_back(beta);
     }
+}
+
+double Line::translateXToMm(double x) {
+    return x / PPM - 75;
+}
+
+double Line::translateYToMm(double y) {
+    return 175 - y / PPM;
 }

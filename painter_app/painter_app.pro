@@ -12,12 +12,16 @@ SOURCES += \
     arduino_communicator.cpp \
     line.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    rectangle.cpp \
+    square.cpp
 
 HEADERS += \
     arduino_communicator.h \
     line.h \
-    mainwindow.h
+    mainwindow.h \
+    rectangle.h \
+    square.h
 
 FORMS += \
     mainwindow.ui

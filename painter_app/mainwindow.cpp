@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#define DELAY 100
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -46,24 +48,63 @@ void MainWindow::on_LineButton_clicked()
     scene->addItem(line);
 
     infoCoordinate(line);
+    rectangle = nullptr;
+    square = nullptr;
+}
+
+void MainWindow::on_RectangleButton_clicked()
+{
+    rectangle = new Rectangle();
+    scene->addItem(rectangle);
+
+    line = nullptr;
+    square = nullptr;
+}
+
+void MainWindow::on_SquareButton_clicked()
+{
+    square = new Square();
+    scene->addItem(square);
+
+    line = nullptr;
+    rectangle = nullptr;
 }
 
 void MainWindow::on_DrawRobotButton_clicked()
 {
     arduino->sendPen(0);
+
+    if (line != nullptr) {
+        drawLine(line);
+    } else if (rectangle != nullptr) {
+        drawLine(&rectangle->line1);
+        drawLine(&rectangle->line2);
+        drawLine(&rectangle->line3);
+        drawLine(&rectangle->line4);
+    } else if (square != nullptr) {
+        drawLine(&square->line1);
+        drawLine(&square->line2);
+        drawLine(&square->line3);
+        drawLine(&square->line4);
+    }
+
+    arduino->sendPen(0);
+    arduino->sendDelay(DELAY);
+}
+
+void MainWindow::drawLine(Line* line) {
     line->mathForDrawLineWithRobotArm();
 
     std::vector<double> arrAlpha = line->getAlpha();
     std::vector<double> arrBeta = line->getBeta();
 
     arduino->sendAngles(arrAlpha[0], arrBeta[0]);
-    arduino->sendDelay(10);
+    arduino->sendDelay(DELAY);
     arduino->sendPen(1);
+    arduino->sendDelay(DELAY);
 
     for(int i = 1; i < arrAlpha.size(); i++){
         arduino->sendAngles(arrAlpha[i], arrBeta[i]);
-        arduino->sendDelay(10);
+        arduino->sendDelay(DELAY);
     }
-
-    arduino->sendPen(0);
 }

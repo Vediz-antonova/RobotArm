@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1225</width>
-    <height>413</height>
+    <width>864</width>
+    <height>533</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -68,9 +68,6 @@
       </item>
      </layout>
     </item>
-    <item row="0" column="0">
-     <widget class="QGraphicsView" name="graphicsView"/>
-    </item>
     <item row="1" column="0">
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
@@ -110,6 +107,13 @@
       </property>
      </widget>
     </item>
+    <item row="0" column="0">
+     <widget class="QGraphicsView" name="graphicsView">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(67, 67, 67);</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -117,7 +121,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1225</width>
+     <width>864</width>
      <height>25</height>
     </rect>
    </property>
